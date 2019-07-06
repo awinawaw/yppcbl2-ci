@@ -30,7 +30,6 @@ class Donasi extends CI_Controller {
 			'amount' => $this->input->post('amount'),
 			'payment' => $this->input->post('payment')
 		);
-
 		$this->load->view('pembayaran',$data);
 	}
 

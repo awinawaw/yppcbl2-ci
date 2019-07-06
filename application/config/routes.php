@@ -55,3 +55,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['donasi/pembayaran'] = 'Donasi/showPembayaran';
 $route['donasi/selesai']='Donasi/showAction';
+$route['login/submit'] = 'auth/authLogin';
+$route['logout'] = 'auth/logout';

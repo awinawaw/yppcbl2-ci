@@ -12,8 +12,6 @@
 <!-- Fav Icons -->
 <link rel="shortcut icon" href="<?php echo base_url() ?>asset/images/icons/favicon.png" type="image/x-icon">
 <link rel="icon" href="<?php echo base_url() ?>asset/images/icons/favicon.png" type="image/x-icon">
-<script type="text/javascript" src="<?php echo base_url() ?>asset/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>asset/js/bootstrap.min.js"></script>
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -43,12 +41,29 @@
                     </div>
 
                     <!--Top Right-->
-                    <div class="top-right">
-						<ul class="links-nav clearfix">
-							<li data-toggle="modal" data-target="#mydaftar"><a href="#mydaftar"><span class="glyphicon glyphicon-user"></span> Daftar</a></li>
-							<li data-toggle="modal" data-target="#mylogin"><a href="#mylogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						</ul>
-					</div>
+                    <?php 
+                    if($this->session->userdata('status') == "LOGIN"){
+	                 ?>
+	                  
+	                <h5>Selamat Datang <?=$this->session->userdata('nama')?> </h5>
+	                  <div class="top-right">
+	                    <ul class="links-nav clearfix">
+	                      <li> <a class="glyphicon glyphicon-user" href="<?=base_url()?>index.php/logout"> Logout</a></li>
+	                    </ul>
+	                  </div>
+
+	                <?php 
+	                  }else{
+	                 ?>
+	                  <div class="top-right">
+	                  <ul class="links-nav clearfix">
+	                    <li data-toggle="modal" data-target="#mydaftar"><a href="#"><span class="glyphicon glyphicon-user"></span> Daftar</a></li>
+	                    <li data-toggle="modal" data-target="#mylogin"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	                  </ul>
+	                </div>
+	              <?php 
+	                } 
+	              ?>
                 </div>
                     
             </div>
@@ -93,33 +108,40 @@
 						<!-- end modal daftar -->
 						
 						<!-- Modal login -->
-						<div id="mylogin" class="modal fade" role="dialog">
-							<div class="modal-dialog">
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Daftar Donatur</h4>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="exampleInputEmail1">Username</label>
-											<input type="text" class="form-control" id="username" placeholder="Username">
+						<div class="modal" id="mylogin">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						      
+						        <!-- Modal Header -->
+						        <div class="modal-header">
+						          <h4 class="modal-title">Modal Heading</h4>
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						        </div>
+						        
+						        <!-- Modal body -->
+						        <div class="modal-body">
+						          <form action="<?=base_url()?>index.php/login/submit" method="post">
+									<?php if($this->session->flashdata('message')){?>
+										<div class="alert alert-danger" role="alert">
+										<?=$this->session->flashdata('message')?>   
 										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Password</label>
-											<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
+
+									<?php } ?>
+								  <div class="form-group">
+								    <label for="email">EMAIL</label>
+								    <input type="text" class="form-control" id="email" placeholder="Masukan Email" name="email">    
+								  </div>
+								  <div class="form-group">
+								    <label for="password">Password</label>
+								    <input type="password" class="form-control" id="password" placeholder="Password" name="password">    
+								  </div>  
+								  <button type="submit" class="btn btn-primary">Submit</button>
+						          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+								</form>
+						        </div>
+						    </div>
+						  </div>
 						</div>
-					</div>
 					<!-- End Modal Login -->
         <!--Header-Upper-->
         <div class="header-upper">

@@ -28,12 +28,8 @@ $this->load->view('base/header');
             <form  action="<?php echo base_url() ?>donasi/pembayaran" class="donate-form default-form" method="post">
                 <ul class="chicklet-list clearfix">
                     <li class="other-amount">
-                        <ul>
-                        <li>
-                            <div class="input-container" data-message="Every dollar you donate helps end hunger.">
-                            <input type="text" id="other-amount" name="amount" placeholder="Contoh : 10000"  onfocus="disableOption()" /></li>
-                            </div>
-                        </ul>   
+                        <div class="input-container" data-message="Every dollar you donate helps end hunger."><input type="text" id="other-amount" name="amount" placeholder="Contoh : 100000"  />
+                        </div>
                     </li>
                 </ul>
 
@@ -44,8 +40,16 @@ $this->load->view('base/header');
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             
                             <div class="form-group">
-                                <p>Your Name*</p>
-                                <input type="text" name="fname" placeholder="">
+                                <p>Nama Donatur*</p>
+                                <?php if($this->session->userdata('status') == 'LOGIN'){
+
+                                 ?>
+                                <input type="text" name="fname" value="<?=$this->session->userdata('nama')?>" id="fname">Hide Identity : Yes <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck">
+                                <input type="hidden" name="hiden-name" id="fname-hidden" value="<?=$this->session->userdata('nama')?>">
+                                 <?php }else{
+                                  ?>
+                                <span><i> <h4> <font color="red"> Anda Belum Melakukan Login </font> </h4> </i></span>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -54,7 +58,7 @@ $this->load->view('base/header');
                 <ul class="payment-option">
                     <li>
                         <label>Choose your payment method:</label>
-                        <select class="form-control" name="payment">
+                        <select class="" name="payment">
                             <option value="BCA KCU DAGO">BCA KCU DAGO</option>
                             <option value="NIAGA RUPIAH">NIAGA RUPIAH</option>
                             <option value="NIAGA DOLAR">NIAGA DOLAR</option>
@@ -65,9 +69,15 @@ $this->load->view('base/header');
                     
                 </ul>
 
-                <div class="center"><button class="theme-btn btn-style-one" type="submit">Donate Now</button></div>
-                    
-            
+                <div class="center">
+                    <?php  if($this->session->userdata('status') == 'LOGIN'){ ?>
+                        <div class="center"><input type="submit" class="theme-btn btn-style-one" value="Donate Now"></div>
+                    <?php  }else{ ?>
+                        <span>Untuk Melakukan Donasi Silahkan Login Terlebih Dahulu</span>
+                        <br>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#mylogin">LOGIN</a>
+                    <?php } ?>
+                </div> 
             </form>
         </div>
     </div> 
@@ -93,8 +103,14 @@ $this->load->view('base/header');
         </div>
     </section>
     <script type="text/javascript">
-        function disableOption(){
-            document.getElementById('donate-amount-1').style.backgroundColor="red";
+        function yesnoCheck() {
+            var data = document.getElementById("fname-hidden").value;
+            if (document.getElementById('yesCheck').checked) {
+                document.getElementById('fname').value = 'Annonymous Donatur';
+            }
+            else{
+                document.getElementById('fname').value = data;
+            }
         }
     </script>
 
