@@ -1,6 +1,6 @@
 <?php
 
-class donatur extends CI_Model {
+class M_donatur extends CI_Model {
 	
 	public function __construct(){
 		$this->load->database();
@@ -15,5 +15,9 @@ class donatur extends CI_Model {
 		}else{
 			return 0;
 		}
+	}
+
+	public function insert($data){								
+		$this->db->query("INSERT INTO donatur(ID_DONATUR, NAMA_DONATUR, EMAIL, PASSWORD, NO_NP, ALAMAT) VALUES('$data[id]', '$data[nama]', '$data[email]', '$data[pass]', '$data[nomer]', '$data[alamat]')");
 	}
 }

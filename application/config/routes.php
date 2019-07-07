@@ -57,3 +57,4 @@ $route['donasi/pembayaran'] = 'Donasi/showPembayaran';
 $route['donasi/selesai']='Donasi/showAction';
 $route['login/submit'] = 'auth/authLogin';
 $route['logout'] = 'auth/logout';
+$route['pendaftaran/submit'] = 'donatur/pendafaranDonatur';

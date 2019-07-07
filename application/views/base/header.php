@@ -75,32 +75,35 @@
 							<!-- Modal content-->
 							<div class="modal-content">
 								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Pendaftaran Sekolah</h4>
+									<h4 class="modal-title">Pendaftaran Donatur</h4>
 								</div>
 								<div class="modal-body">
-									<form>
+									<form action="<?=base_url()?>index.php/pendaftaran/submit" method="post">
 										<div class="form-group">
-											<label for="exampleInputEmail1">Fullname</label>
-											<input type="text" class="form-control" id="Fullname" placeholder="Fullname">
+											<label for="exampleInputNama">Nama</label>
+											<input type="text" name="nama" class="form-control" placeholder="Nama Lengkap">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputEmail1">Username</label>
-											<input type="text" class="form-control" id="username" placeholder="Username">
+											<label for="exampleInputEmail1">Email</label>
+											<input type="email" name="email" class="form-control" placeholder="yppcbl@yahoo.co.id">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputEmail1">Email address</label>
-											<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+											<label for="exampleInputNomer">Nomer Telpon.</label>
+											<input type="text" pattern="\d\d\d\d\d\d\d\d\d\d\d\d" name="nomer" maxlength="12" class="form-control" placeholder="02938784">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Password</label>
-											<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+											<input type="password" name="pass" class="form-control" placeholder="Password">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputAlamat">Alamat</label>
+											<textarea name="alamat" class="form-control"> </textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Submit</button>
+								          	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 										</div>
 									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-success" data-dismiss="modal">Daftar</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 								</div>
 							</div>
@@ -135,7 +138,7 @@
 								    <label for="password">Password</label>
 								    <input type="password" class="form-control" id="password" placeholder="Password" name="password">    
 								  </div>  
-								  <button type="submit" class="btn btn-primary">Submit</button>
+								  <button type="submit" class="btn btn-success">Login</button>
 						          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 								</form>
 						        </div>

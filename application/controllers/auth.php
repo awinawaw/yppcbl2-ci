@@ -8,8 +8,7 @@ class auth extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'password' => md5($this->input->post('password')),
 		);
-		$user_data = $this->donatur->find_donatur($data);
-		
+		$user_data = $this->M_donatur->find_donatur($data);
 		if($user_data){
 			$data_session = array(
 				'status' => 'LOGIN',
