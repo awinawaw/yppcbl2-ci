@@ -89,7 +89,7 @@
 										</div>
 										<div class="form-group">
 											<label for="exampleInputNomer">Nomer Telpon.</label>
-											<input type="text" pattern="\d\d\d\d\d\d\d\d\d\d\d\d" name="nomer" maxlength="12" class="form-control" placeholder="02938784">
+											<input type="text" pattern="\d\d\d\d\d\d\d\d\d\d\d\d" name="nomer" maxlength="12" class="form-control" placeholder="082225330***">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Password</label>

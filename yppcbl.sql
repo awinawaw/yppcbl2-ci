@@ -78,7 +78,7 @@ CREATE TABLE `donatur` (
   `NAMA_DONATUR` varchar(250) DEFAULT NULL,
   `EMAIL` varchar(50) DEFAULT NULL,
   `PASSWORD` varchar(150) DEFAULT NULL,
-  `NO_NP` varchar(20) DEFAULT NULL,
+  `NO_HP` varchar(20) DEFAULT NULL,
   `ALAMAT` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

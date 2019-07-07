@@ -18,6 +18,6 @@ class M_donatur extends CI_Model {
 	}
 
 	public function insert($data){								
-		$this->db->query("INSERT INTO donatur(ID_DONATUR, NAMA_DONATUR, EMAIL, PASSWORD, NO_NP, ALAMAT) VALUES('$data[id]', '$data[nama]', '$data[email]', '$data[pass]', '$data[nomer]', '$data[alamat]')");
+		$this->db->query("INSERT INTO donatur(ID_DONATUR, NAMA_DONATUR, EMAIL, PASSWORD, NO_HP, ALAMAT) VALUES('$data[id]', '$data[nama]', '$data[email]', '$data[pass]', '$data[nomer]', '$data[alamat]')");
 	}
 }
