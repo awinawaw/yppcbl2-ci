@@ -5,6 +5,7 @@ class Donasi extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->load->library('form_validation');
     }
 
 
@@ -34,15 +35,20 @@ class Donasi extends CI_Controller {
 	}
 
 	public function showAction(){
-		if (!empty($_FILES['foto']['name'])) {
+		$this->form_validation->set_rules('foto','Foto','required');
+
+
+		if ($this->form_validation->run() != false) {
 			$data['foto'] = $this->uploadFoto();
-			$status['status']="True";
 			$this->load->view('thanks',$status);
 
 		}else{
-			$status['status']="status";
-			$this->load->view('thanks',$status);
-		}
+			$data['tipe'] = array(
+			'nama' => $this->input->post('fname'),
+			'amount' => $this->input->post('amount'),
+			'payment' => $this->input->post('payment')
+		);
+		$this->load->view('pembayaran',$data);		}
 	}
 
 	public function uploadFoto(){
@@ -58,5 +64,7 @@ class Donasi extends CI_Controller {
                   return FALSE;
             }
       }
+
+      
 
 }

@@ -51,15 +51,20 @@ $this->load->view('base/header');
 
     <div class="container" align="center" >
         <br><br><br><br><br><br>
-
-        <form action="<?php echo base_url() ?>donasi/selesai" method="post" enctype="multipart/form-data">
+    
+        <?php echo form_open('donasi/selesai');?>
+      <!--   <form action="<?php echo base_url() ?>donasi/selesai" method="post" enctype="multipart/form-data"> -->
             <h2>BUKTI TRANSFER</h2>
             <table align="center">
                 <tr class="form-group" >
                     <td><input type="file" class="form-control-file" name="foto"></td>
+                        <?php echo validation_errors();?>
                 </tr>
                 <tr class="form-group">
-                    
+                <input type="hidden" name="fname" value="<?=$tipe['nama'];;?>">
+                <input type="hidden" name="payment" value="<?=$tipe['payment'];;?>">
+                <input type="hidden" name="amount" value="<?=$tipe['amount'];;?>">
+                
                     <td align="center"><button type="submit" class="btn btn-primary" >Submit</button></td>
                 </tr>
             </table>
