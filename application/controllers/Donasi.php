@@ -25,17 +25,23 @@ class Donasi extends CI_Controller {
 	}
 
 	public function showPembayaran()
-	{
+	{	$this->form_validation->set_rules('amount','Amount','required', array('required'=>'Anda harus memasukan nominal yang akan di donasikan'));
+
+		if ($this->form_validation->run() != false) {
+
 		$data['tipe'] = array(
 			'nama' => $this->input->post('fname'),
 			'amount' => $this->input->post('amount'),
 			'payment' => $this->input->post('payment')
 		);
 		$this->load->view('pembayaran',$data);
+		} else{
+			$this->load->view('donasi_yayasan');
+		}
 	}
 
 	public function showAction(){
-		$this->form_validation->set_rules('foto','Foto','required');
+		$this->form_validation->set_rules('foto','Foto','required', array('required'=>'Anda harus mengirimkan bukti transaksi untuk menyelesaikan donasi yang anda berikan'));
 
 
 		if ($this->form_validation->run() != false) {

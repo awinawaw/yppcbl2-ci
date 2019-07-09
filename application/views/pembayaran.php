@@ -53,7 +53,6 @@ $this->load->view('base/header');
         <br><br><br><br><br><br>
     
         <?php echo form_open('donasi/selesai');?>
-      <!--   <form action="<?php echo base_url() ?>donasi/selesai" method="post" enctype="multipart/form-data"> -->
             <h2>BUKTI TRANSFER</h2>
             <table align="center">
                 <tr class="form-group" >

@@ -24,11 +24,13 @@ $this->load->view('base/header');
             </div>
 
             <h4>kami akan langsung mengolahnya untuk yang membutuhkan</h4>
-
-            <form  action="<?php echo base_url() ?>donasi/pembayaran" class="donate-form default-form" method="post">
+            <?php echo form_open('donasi/pembayaran');?>
+  
+            <!-- <form  action="<?php echo base_url() ?>donasi/pembayaran" class="donate-form default-form" method="post"> -->
                 <ul class="chicklet-list clearfix">
                     <li class="other-amount">
                         <div class="input-container" data-message="Every dollar you donate helps end hunger."><input type="text" id="other-amount" name="amount" placeholder="Contoh : 100000"  />
+                            <?php echo validation_errors();?>
                         </div>
                     </li>
                 </ul>
@@ -71,7 +73,7 @@ $this->load->view('base/header');
 
                 <div class="center">
                     <?php  if($this->session->userdata('status') == 'LOGIN'){ ?>
-                        <div class="center"><input type="submit" class="theme-btn btn-style-one" value="Donate Now"></div>
+                        <div class="center"><input type="submit" class="theme-btn btn-style-one" onclick="javascript:cekDonasi();" value="Donate Now"></div>
                     <?php  }else{ ?>
                         <span>Untuk Melakukan Donasi Silahkan Login Terlebih Dahulu</span>
                         <br>
@@ -110,6 +112,16 @@ $this->load->view('base/header');
             }
             else{
                 document.getElementById('fname').value = data;
+            }
+        }
+        function cekDonasi(){
+            var data = document.getElementById("other-amount").value;
+            if (data>50000) {
+                document.getElementById("other-amount").value = data;
+            }else if (data>0) {
+                document.getElementById("other-amount").value = 50000;
+            }else{
+                document.getElementById("other-amount").value = null;
             }
         }
     </script>
