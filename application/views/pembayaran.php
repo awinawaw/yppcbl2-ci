@@ -51,12 +51,13 @@ $this->load->view('base/header');
 
     <div class="container" align="center" >
         <br><br><br><br><br><br>
-    
+        <!-- validasi foto, dimana nantinya action akan mengecek ke controller yang sudah membuat aturan input yang diharuskan-->
         <?php echo form_open('donasi/selesai');?>
             <h2>BUKTI TRANSFER</h2>
             <table align="center">
                 <tr class="form-group" >
                     <td><input type="file" class="form-control-file" name="foto"></td>
+                    <!-- Pesan yang akan ditampilkan jika rules atau aturan dalam validasi tidak dipenuhi-->
                         <?php echo validation_errors();?>
                 </tr>
                 <tr class="form-group">

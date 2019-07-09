@@ -34,7 +34,9 @@ class Donasi extends CI_Controller {
 
 
 	public function showPembayaran()
-	{	$this->form_validation->set_rules('amount','Amount','required', array('required'=>'Anda harus memasukan nominal yang akan di donasikan'));
+	{	
+		//Validasi request untuk jumlah donasi yang akan di donasikan
+		$this->form_validation->set_rules('amount','Amount','required|alpha_numeric', array('required'=>'Anda harus memasukan nominal yang akan di donasikan'));
 
 		if ($this->form_validation->run() != false) {
 
@@ -50,12 +52,13 @@ class Donasi extends CI_Controller {
 	}
 
 	public function showAction(){
+		//validasi untuk bukti foto saat akan menyelesaikan transaksi donasi
 		$this->form_validation->set_rules('foto','Foto','required', array('required'=>'Anda harus mengirimkan bukti transaksi untuk menyelesaikan donasi yang anda berikan'));
 
 
 		if ($this->form_validation->run() != false) {
 			$data['foto'] = $this->uploadFoto();
-			$this->load->view('thanks',$status);
+			$this->load->view('thanks',);
 
 		}else{
 			$data['tipe'] = array(

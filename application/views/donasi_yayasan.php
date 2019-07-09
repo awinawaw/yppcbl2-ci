@@ -24,9 +24,8 @@ $this->load->view('base/header');
             </div>
 
             <h4>kami akan langsung mengolahnya untuk yang membutuhkan</h4>
-            <?php echo form_open('donasi/pembayaran');?>
-  
-            <!-- <form  action="<?php echo base_url() ?>donasi/pembayaran" class="donate-form default-form" method="post"> -->
+            <!--Bagian Action dimana nantinya akan dicek terlebih dahulu, jika null atau bukan number, maka akan dialihkan kembali ke halaman ini -->
+           <?php echo form_open('donasi/pembayaran');?>
                 <ul class="chicklet-list clearfix">
                     <li class="other-amount">
                         <div class="input-container" data-message="Every dollar you donate helps end hunger."><input type="text" id="other-amount" name="amount" placeholder="Contoh : 100000"  />
@@ -114,6 +113,8 @@ $this->load->view('base/header');
                 document.getElementById('fname').value = data;
             }
         }
+        //Memastikan donasi tidak null atau tidak lebih kecil dari 50000, jika lebih kecil maka field amount akan menjadi 50 000
+        //onClick cekDonasi berada pada button submit
         function cekDonasi(){
             var data = document.getElementById("other-amount").value;
             if (data>50000) {
