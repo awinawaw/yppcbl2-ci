@@ -11,8 +11,15 @@ class Donasi extends CI_Controller {
 
 	public function donasi_pasien()
 	{
-		$this->load->view('donasi_pasien');
+		$data['pasien'] = $this->pasien->getPasien();
+		$this->load->view('donasi_pasien',$data);
+		
 	}
+
+	// public function donasi_pasienver2()
+	// {
+	// 	$this->load->view('donasi_pasienver2');
+	// }
 	
 	public function donasi_yayasan()
 	{
@@ -23,6 +30,8 @@ class Donasi extends CI_Controller {
 	{
 		$this->load->view('listpasien');
 	}
+
+
 
 	public function showPembayaran()
 	{	$this->form_validation->set_rules('amount','Amount','required', array('required'=>'Anda harus memasukan nominal yang akan di donasikan'));

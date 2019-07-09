@@ -98,7 +98,9 @@ CREATE TABLE `pasien` (
   `NO_TELP` varchar(20) DEFAULT NULL,
   `NO_ALT` varchar(20) DEFAULT NULL,
   `EMAIL` varchar(50) DEFAULT NULL,
-  `PASSWORD` varchar(150) DEFAULT NULL
+  `PASSWORD` varchar(150) DEFAULT NULL,
+  `DONASI_DIDAPAT` int(11) NOT NULL,
+  `DONASI_TARGET` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
