@@ -11,6 +11,11 @@ class donatur extends CI_Controller {
 			'pass' => md5($this->input->post('pass')),
 			'alamat' => $this->input->post('alamat')
     	);
+    		$data_session = array(
+				'status' => 'Daftar'
+			);
+			$this->session->set_userdata($data_session);
+
 			$this->M_donatur->insert($data);
 			redirect('home');
     }

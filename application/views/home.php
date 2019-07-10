@@ -4,7 +4,10 @@
     ?>
     <?php 
         if($this->session->userdata('status') == "NotLogin"){
-            echo "<script type='text/javascript'>alert('Username & Password Anda Salah!'); </script>";
+            echo "<script type='text/javascript'>alert('Email & Password Anda Salah!'); </script>";
+            $this->session->sess_destroy();
+        }elseif($this->session->userdata('status') == "Daftar"){
+            echo "<script type='text/javascript'>alert('Pendaftaran Berhasil Silahkan Login'); </script>";
         }
      ?>
     <!-- Main slider -->
