@@ -2,6 +2,11 @@
    <?php
     $this->load->view('base/header');
     ?>
+    <?php 
+        if($this->session->userdata('status') == "NotLogin"){
+            echo "<script type='text/javascript'>alert('Username & Password Anda Salah!'); </script>";
+        }
+     ?>
     <!-- Main slider -->
     <section class="main-slider">
         <div class="container-fluid">

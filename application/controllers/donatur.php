@@ -14,4 +14,9 @@ class donatur extends CI_Controller {
 			$this->M_donatur->insert($data);
 			redirect('home');
     }
+
+    public function dashboard(){
+		$this->load->view('donatur-dashboard');
+    }
+
 }

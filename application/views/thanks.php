@@ -9,7 +9,7 @@ $this->load->view('base/header');
         <div class="container">
             <h1>TERIMA KASIH ATAS DONASI ANDA</h1>
         </div>
-    </section>
+</section>
 
     
     

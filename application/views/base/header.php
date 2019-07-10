@@ -44,11 +44,9 @@
                     <?php 
                     if($this->session->userdata('status') == "LOGIN"){
 	                 ?>
-	                  
-	                <h5>Selamat Datang <?=$this->session->userdata('nama')?> </h5>
-	                  <div class="top-right">
+	                <div class="top-right">
 	                    <ul class="links-nav clearfix">
-	                      <li> <a class="glyphicon glyphicon-user" href="<?=base_url()?>index.php/logout"> Logout</a></li>
+	                      <li> <a href="<?=base_url()?>index.php/logout"><button class="btn btn-danger">Logout</button></a></li>
 	                    </ul>
 	                  </div>
 
@@ -57,8 +55,8 @@
 	                 ?>
 	                  <div class="top-right">
 	                  <ul class="links-nav clearfix">
-	                    <li data-toggle="modal" data-target="#mydaftar"><a href="#"><span class="glyphicon glyphicon-user"></span> Daftar</a></li>
-	                    <li data-toggle="modal" data-target="#mylogin"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	                    <li data-toggle="modal" data-target="#mydaftar"><a href="#"><button class="btn btn-primary">Daftar</button></a></li>
+	                    <li data-toggle="modal" data-target="#mylogin"><a href="#"><button class="btn btn-success">Login</button></a></li>
 	                  </ul>
 	                </div>
 	              <?php 

@@ -17,9 +17,13 @@ class auth extends CI_Controller {
 
 			$this->session->set_userdata($data_session);
 			$this->session->set_flashdata('message', "Welcome ".$data_session['nama']);
-			redirect('home');
+			redirect('donatur/dashboard');
 		}else{
-			$this->session->set_flashdata('message',"No Credential");
+			$data_session = array(
+				'status' => 'NotLogin'
+			);
+			$this->session->set_userdata($data_session);
+			$this->session->set_flashdata('message',"Email atau Password Salah,Silahkan Masukan Kembali");
 			redirect('home');
 		}
 		// echo "authLogins";
