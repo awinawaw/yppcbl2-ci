@@ -6,6 +6,7 @@ class Donasi extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation');
+
     }
 
 
@@ -53,11 +54,23 @@ class Donasi extends CI_Controller {
 
 	public function showAction(){
 		//validasi untuk bukti foto saat akan menyelesaikan transaksi donasi
-		$this->form_validation->set_rules('foto','Foto','required', array('required'=>'Anda harus mengirimkan bukti transaksi untuk menyelesaikan donasi yang anda berikan'));
+		// $this->form_validation->set_rules('foto','Foto','required', array('required'=>'Anda harus mengirimkan bukti transaksi untuk menyelesaikan donasi yang anda berikan'));
+		// echo "$this->input->post('foto');";
+
+		if (!empty($_FILES['foto']['name'])) {
 
 
-		if ($this->form_validation->run() != false) {
+			$data = array(
+				'name' => $this->input->post('fname'),
+				'jumlah' => $this->input->post('amount'),
+				'status' => 1
+				// 'foto' => $this->input->post('foto') 
+			);
+			
 			$data['foto'] = $this->uploadFoto();
+			
+			$this->M_donasi_yayasan->insert($data);
+			
 			$this->load->view('thanks',);
 
 		}else{
@@ -66,7 +79,8 @@ class Donasi extends CI_Controller {
 			'amount' => $this->input->post('amount'),
 			'payment' => $this->input->post('payment')
 		);
-		$this->load->view('pembayaran',$data);		}
+		$this->load->view('pembayaran',$data);		
+	}
 	}
 
 	public function uploadFoto(){
