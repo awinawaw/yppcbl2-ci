@@ -45,7 +45,7 @@ $this->load->view('base/header');
                                 <?php if($this->session->userdata('status') == 'LOGIN'){
 
                                  ?>
-                                <input type="text" name="fname" value="<?=$this->session->userdata('nama')?>" id="fname">Hide Identity : Yes <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck">
+                                <input type="text" name="fname" value="<?=$this->session->userdata('nama')?>" id="fname" disabled>Hide Identity : Yes <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck">
                                 <input type="hidden" name="hiden-name" id="fname-hidden" value="<?=$this->session->userdata('nama')?>">
                                  <?php }else{
                                   ?>
